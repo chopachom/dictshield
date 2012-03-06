@@ -178,7 +178,7 @@ class TopLevelDocumentMetaclass(DocumentMetaclass):
                 data[field.uniq_field] = field_converter(field, value)
 
         # Only add _cls and _types if allow_inheritance is not False
-        if not (hasattr(self, '_meta') and
+        if not (hasattr(self, '_meta') or
                 self._meta.get('allow_inheritance', True) == False):
             data['_cls'] = self._class_name
             data['_types'] = self._superclasses.keys() + [self._class_name]
